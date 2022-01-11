@@ -30,7 +30,7 @@ public class Board : MonoBehaviour
     }
 
     public void Decide(int option) {
-        NPCInfo.NPC npc = gameObject.GetComponentInChildren<NPCInfo>().npc;
+        Characters.NPC npc = gameObject.GetComponentInChildren<Characters>().GetActiveNPC();
         int npcOption = npc.Decide();
         int deltaHealth = 0;
         int deltaGold = 0;
