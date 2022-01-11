@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Text healthText;
     public Text damageText;
     public Text goldText;
+    public static event System.Action PlayerDead;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,10 @@ public class Player : MonoBehaviour
     public void SaveConsequences(int deltaHealth, int deltaGold) {
         health += deltaHealth;
         gold += deltaGold;
-        RenderInfo();
+        if (health <= 0 && PlayerDead != null) {
+            PlayerDead();
+        } else {
+            RenderInfo();
+        }
     }
 }
