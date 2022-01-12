@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
-    public int reward = 10;
+    public int reward = 12;
     public static event System.Action<int, int> PlayerConsequences;
     public static event System.Action<int, int, int> NPCConsequences;
     public Text rewardText;
@@ -14,6 +14,7 @@ public class Board : MonoBehaviour
     void Start()
     {
         PlayerOption.Decide += Decide;
+        RollReward();
         RenderReward();
     }
 
@@ -25,6 +26,10 @@ public class Board : MonoBehaviour
 
     void OnDestroy() {
         PlayerOption.Decide -= Decide;
+    }
+
+    public void RollReward() {
+        reward = Random.Range(1, 25) * 4;
     }
 
     public void RenderReward() {
@@ -85,9 +90,9 @@ public class Board : MonoBehaviour
                 }
                 break;
         }
-        print("round " + round + "lastplayeroption " + npc.lastPlayerAction);
-        print("Round " + round+ " Player Action: " + option + " Cat action: " + npcOption);
         if (PlayerConsequences != null) PlayerConsequences(deltaHealth, deltaGold);
         if (NPCConsequences != null) NPCConsequences(npcDeltaHealth, npcDeltaGold, option);
+        RollReward();
+        RenderReward();
     }
 }
