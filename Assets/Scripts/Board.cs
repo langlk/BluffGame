@@ -7,7 +7,7 @@ public class Board : MonoBehaviour
 {
     public int reward = 10;
     public static event System.Action<int, int> PlayerConsequences;
-    public static event System.Action<int, int> NPCConsequences;
+    public static event System.Action<int, int, int> NPCConsequences;
     public Text rewardText;
     int round = 0;
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Board : MonoBehaviour
 
     public void Decide(int option) {
         round += 1;
-        Characters.NPC npc = gameObject.GetComponentInChildren<Characters>().GetActiveNPC();
+        Character npc = gameObject.GetComponentInChildren<CharacterManager>().GetActiveNPC();
         int playerDmg = gameObject.GetComponentInChildren<Player>().damage;
         int npcOption = npc.Decide();
         int deltaHealth = 0;
@@ -85,7 +85,9 @@ public class Board : MonoBehaviour
                 }
                 break;
         }
+        print("round " + round + "lastplayeroption " + npc.lastPlayerAction);
+        print("Round " + round+ " Player Action: " + option + " Cat action: " + npcOption);
         if (PlayerConsequences != null) PlayerConsequences(deltaHealth, deltaGold);
-        if (NPCConsequences != null) NPCConsequences(npcDeltaHealth, npcDeltaGold);
+        if (NPCConsequences != null) NPCConsequences(npcDeltaHealth, npcDeltaGold, option);
     }
 }

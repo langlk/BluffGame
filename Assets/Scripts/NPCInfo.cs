@@ -13,7 +13,7 @@ public class NPCInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Characters.UpdateNPC += RenderNPCInfo;
+        CharacterManager.UpdateNPC += RenderNPCInfo;
     }
 
     // Update is called once per frame
@@ -23,10 +23,10 @@ public class NPCInfo : MonoBehaviour
     }
 
     void OnDestroy() {
-        Characters.UpdateNPC -= RenderNPCInfo;
+        CharacterManager.UpdateNPC -= RenderNPCInfo;
     }
 
-    void RenderNPCInfo(Characters.NPC npc) {
+    void RenderNPCInfo(Character npc) {
         nameText.text = npc.name;
         damageText.text = npc.damage.ToString();
         healthText.text = npc.health.ToString();
