@@ -41,8 +41,8 @@ public class Board : MonoBehaviour
     public void Decide(int option) {
         round += 1;
         Character npc = gameObject.GetComponentInChildren<CharacterManager>().GetActiveNPC();
-        int playerDmg = gameObject.GetComponentInChildren<Player>().damage;
-        int npcOption = npc.Decide(reward);
+        Player player = gameObject.GetComponentInChildren<Player>();
+        int npcOption = npc.Decide(reward, player);
         int deltaHealth = 0;
         int deltaGold = 0;
         int npcDeltaHealth = 0;
@@ -53,11 +53,11 @@ public class Board : MonoBehaviour
                 switch (npcOption) {
                     case 0:
                         deltaHealth = -npc.damage;
-                        npcDeltaHealth = -playerDmg;
+                        npcDeltaHealth = -player.damage;
                         break;
                     case 1:
                         deltaGold = reward;
-                        npcDeltaHealth = -playerDmg;
+                        npcDeltaHealth = -player.damage;
                         break;
                     case 2:
                         deltaGold = reward;

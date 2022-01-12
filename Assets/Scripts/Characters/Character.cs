@@ -23,7 +23,7 @@ public class Character
         LogPlayerAction(playerAction);
     }
 
-    public virtual int Decide(int reward) {
+    public virtual int Decide(int reward, Player player) {
         return Random.Range(0,3);
     }
 
