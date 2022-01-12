@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 45445228}
   - component: {fileID: 45445227}
   - component: {fileID: 45445226}
-  - component: {fileID: 45445231}
   - component: {fileID: 45445230}
   - component: {fileID: 45445232}
   - component: {fileID: 45445233}
@@ -243,24 +242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardText: {fileID: 1958551272}
   maxRounds: 10
---- !u!114 &45445231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45445225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93cd481407034a5db1f8dc3fc39867b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
-  damage: 5
-  gold: 0
-  healthText: {fileID: 0}
-  damageText: {fileID: 0}
-  goldText: {fileID: 0}
 --- !u!114 &45445232
 MonoBehaviour:
   m_ObjectHideFlags: 0
