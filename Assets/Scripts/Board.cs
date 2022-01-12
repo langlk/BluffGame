@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
-    public int reward = 12;
+    public Text rewardText;
+    public int maxRounds = 10;
+    public static event System.Action GameWon;
     public static event System.Action<int, int> PlayerConsequences;
     public static event System.Action<int, int, int> NPCConsequences;
-    public Text rewardText;
     int round = 0;
+    int reward = 12;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,6 +94,7 @@ public class Board : MonoBehaviour
         }
         if (PlayerConsequences != null) PlayerConsequences(deltaHealth, deltaGold);
         if (NPCConsequences != null) NPCConsequences(npcDeltaHealth, npcDeltaGold, option);
+        if (round >= maxRounds && GameWon != null) GameWon();
         RollReward();
         RenderReward();
     }
