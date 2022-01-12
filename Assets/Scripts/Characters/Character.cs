@@ -27,7 +27,7 @@ public class Character
         return Random.Range(0,3);
     }
 
-    protected void LogPlayerAction(int action) {
+    protected virtual void LogPlayerAction(int action) {
         lastPlayerAction = action;
     }
 }

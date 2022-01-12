@@ -10,7 +10,9 @@ public class CharacterManager : MonoBehaviour
     bool npcUpdated = false;
 
     List<Character> npcs = new List<Character> {
-        new Cat()
+        new Cat(),
+        new Monkey(),
+        new Wolf()
     };
     int activeNPCIndex;
     
