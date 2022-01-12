@@ -41,7 +41,9 @@ public class CharacterManager : MonoBehaviour
     }
 
     public void SaveConsequences(int deltaHealth, int deltaGold, int playerAction) {
-        GetActiveNPC().SaveConsequences(deltaHealth, deltaGold, playerAction);
+        Character activeNPC = GetActiveNPC();
+        activeNPC.SaveConsequences(deltaHealth, deltaGold, playerAction);
+        if (activeNPC.health <= 0) npcs.Remove(activeNPC);
         GetNewNPC();
         if (UpdateNPC != null) UpdateNPC(GetActiveNPC());
     }
