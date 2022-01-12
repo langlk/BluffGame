@@ -42,7 +42,7 @@ public class Board : MonoBehaviour
         round += 1;
         Character npc = gameObject.GetComponentInChildren<CharacterManager>().GetActiveNPC();
         int playerDmg = gameObject.GetComponentInChildren<Player>().damage;
-        int npcOption = npc.Decide();
+        int npcOption = npc.Decide(reward);
         int deltaHealth = 0;
         int deltaGold = 0;
         int npcDeltaHealth = 0;

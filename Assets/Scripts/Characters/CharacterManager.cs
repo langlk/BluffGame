@@ -12,7 +12,8 @@ public class CharacterManager : MonoBehaviour
     List<Character> npcs = new List<Character> {
         new Cat(),
         new Monkey(),
-        new Wolf()
+        new Wolf(),
+        new Magpie()
     };
     int activeNPCIndex;
     

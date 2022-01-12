@@ -7,7 +7,7 @@ public class Wolf : Character
     int cooperateCounter = 0;
     public Wolf(): base("Wolf", 20, 6, 0) {}
 
-    public override int Decide() {
+    public override int Decide(int reward) {
         // Attacks or flees by default
         // If player cooperates 3 times, wolf will always cooperate
         // Resets if attacked

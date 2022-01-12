@@ -6,7 +6,7 @@ public class Cat : Character
 {
     public Cat(): base("Cat", 10, 5, 0) {}
 
-    public override int Decide() {
+    public override int Decide(int reward) {
         // Always flees, unless player fled last time, then will attack or cooperate
         return lastPlayerAction == 2 ? Random.Range(0,2) : 2;
     }
